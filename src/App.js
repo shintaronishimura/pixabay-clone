@@ -15,7 +15,7 @@ function App() {
     fetch(endpointURL)
       .then((response) => response.json())
       .then((data) => {
-        setFetchData(data);
+        setFetchData(data.hits);
       });
   };
 
@@ -25,7 +25,7 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" placeholder="画像を探す" ref={ref} />
       </form>
-      <ImageGrallery />
+      <ImageGrallery fetchData={fetchData} />
     </div>
   );
 }
